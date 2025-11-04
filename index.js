@@ -21,7 +21,14 @@ db.sequelize.sync()
         console.log(err);
     });
 
-
+app.get("/film", async (req, res) => {
+    try {
+        const film = await db.Film.findAll();
+        res.send(film);
+    } catch (err) {
+        res.send(err);
+    }
+});
 
 
 
